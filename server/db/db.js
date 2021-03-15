@@ -6,7 +6,7 @@ const DB_CONNECTION = process.env.DB_CONNECTION;
 const dbConnection = () => {
 	mongoose.connect(
 		DB_CONNECTION,
-		{ useNewUrlParser: true, useUnifiedTopology: true },
+		{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
 		() => {
 			console.log(
 				chalk.cyan(

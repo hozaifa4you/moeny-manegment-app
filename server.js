@@ -7,8 +7,9 @@ const chalk = require("chalk");
 
 // FIXME: custom module
 const dbConnection = require("./server/db/db");
+const userRouter = require("./routers/user-router");
 
-// FIXME: custom
+// FIXME: customization
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -16,7 +17,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 const PORT = process.env.PORT || 99;
 
-// FIXME: routers
+// FIXME: custom middleware routes
+app.use("/user", userRouter);
+
+// FIXME: home routers
 app.get("/", (req, res) => {
 	res.status(200).json({ msg: "This is Home page" });
 });
